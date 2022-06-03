@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.titleCard:hover .face1 {
+  transform: scale(1.2);
+  z-index: 40;
+}
+
+.titleCard:hover .face1 img {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.titleCard:hover .face2 {
+  transform: translateY(20px) scale(1.2);
+  z-index: 30;
+}
