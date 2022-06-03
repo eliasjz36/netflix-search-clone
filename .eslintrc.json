@@ -4,11 +4,15 @@
   },
   "extends": [
     "plugin:storybook/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "next",
     "prettier",
     "next/core-web-vitals",
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:cypress/recommended"
   ],
+  "plugins": ["eslint-plugin-import", "testing-library"],
   "globals": {
     "React": "readonly"
   },
@@ -18,6 +22,44 @@
     }
   ],
   "rules": {
-    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
+    "import/no-unresolved": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["sibling", "parent"],
+          "index"
+        ],
+        "pathGroups": [
+          { "pattern": "@title", "group": "internal" },
+          { "pattern": "@common", "group": "internal" },
+          { "pattern": "@ui", "group": "internal" },
+          { "pattern": "@hooks", "group": "internal" },
+          { "pattern": "@services", "group": "internal" },
+          { "pattern": "@utils", "group": "internal" },
+          { "pattern": "@interfaces", "group": "internal" },
+          { "pattern": "@enums", "group": "internal" }
+        ],
+        "pathGroupsExcludedImportTypes": ["internal"],
+        "alphabetize": {
+          "caseInsensitive": true
+        }
+      }
+    ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
   }
 }

@@ -13,8 +13,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["*"],
+      "@title/*": ["components/title/*"],
+      "@common/*": ["components/common/*"],
+      "@ui/*": ["components/ui/*"],
+      "@hooks/*": ["hooks/*"],
+      "@services/*": ["services/*"],
+      "@interfaces/*": ["ts/interfaces/*"],
+      "@enums/*": ["ts/enums/*"],
+      "@utils/*": ["utils/*"]
+    },
+    "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "components/**/*.ts", "components/**/*.tsx"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
