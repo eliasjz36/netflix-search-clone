@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  netflix-staging:
+    build:
+      context: ../../
+      dockerfile: docker/staging/Dockerfile
+    image: netflix-staging
+    ports:
+      - '3002:3000'

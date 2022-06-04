@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  netflix-production:
+    build:
+      context: ../../
+      dockerfile: docker/production/Dockerfile
+    image: netflix-production
+    ports:
+      - '3003:3000'

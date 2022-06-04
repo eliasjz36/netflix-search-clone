@@ -29,6 +29,7 @@
         <li><a href="#installation">Installation</a></li>
         <li><a href="#testing">Testing</a></li>
         <li><a href="#storybook">Storybook</a></li>
+        <li><a href="#docker">Docker</a></li>
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
@@ -79,7 +80,7 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install
    ```
-4. Enter your IMDB **API KEY** in a `.env` file
+4. Enter your **IMDB API KEY** in a `.env` file
    ```js
    NEXT_PUBLIC_IMDB_API_KEY = 'ENTER YOUR API KEY HERE';
    ```
@@ -112,6 +113,40 @@ npm run storybook
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### Docker
+
+To run the app in a Docker container in development mode, follow the steps below:
+
+1. Enter your **IMDB API KEY** in a `.env.development` file
+2. Create a Docker image
+   ```sh
+   docker compose -f docker/development/docker-compose.yml build
+   ```
+3. Run the app
+   ```sh
+   docker compose -f docker/development/docker-compose.yml up -d
+   ```
+4. Stop the app
+   ```sh
+   docker-compose -f docker/development/docker-compose.yml down
+   ```
+
+To run the app in a Docker container in production mode, follow the steps below:
+
+1. Enter your **IMDB API KEY** in a `.env.production` file
+2. Create a Docker image
+   ```sh
+   docker compose -f docker/production/docker-compose.yml build
+   ```
+3. Run the app
+   ```sh
+   docker compose -f docker/production/docker-compose.yml up -d
+   ```
+4. Stop the app
+   ```sh
+   docker-compose -f docker/production/docker-compose.yml down
+   ```
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
@@ -121,10 +156,11 @@ Contributions are what make the open source community such an amazing place to l
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Prepare husky (`npm run prepare`)
+3. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+4. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+5. Push to the Branch (`git push origin feature/AmazingFeature`)
+6. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
