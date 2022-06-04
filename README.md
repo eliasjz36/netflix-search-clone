@@ -6,7 +6,7 @@
   <h3 align="center">Netflix Search Clone - Web App</h3>
 
   <p align="center">
-    A technology blog web application
+    A web application
     <br />
     <a href="https://netflix-eliasjz36.vercel.app/">View Demo</a>
   </p>
@@ -73,7 +73,7 @@ To get a local copy up and running follow these simple example steps.
 1. Create a free account in [https://imdb-api.com/](https://imdb-api.com/)
 2. Clone the repo
    ```sh
-   git clone https://github.com/eliasjz36/netflix.git
+   git clone https://github.com/eliasjz36/netflix-search-clone.git
    ```
 3. Install NPM packages
    ```sh
