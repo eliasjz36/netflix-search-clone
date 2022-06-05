@@ -14,7 +14,7 @@ const Dropdown = ({ options, header }: DropdownProps) => {
   return (
     <div className="group inline-block relative">
       <button
-        className="bg-dark-gray text-white font-semibold py-2 px-4 rounded inline-flex items-center"
+        className="bg-dark-gray text-white font-semibold py-1 px-2 md:py-2 md:px-4 rounded inline-flex items-center"
         onClick={() => setOpen(!open)}
       >
         <span className="text-xs">{header}</span>

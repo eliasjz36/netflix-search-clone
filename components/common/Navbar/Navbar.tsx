@@ -12,9 +12,9 @@ import navbarLinks from './navbarLinks';
 
 const Navbar = () => {
   return (
-    <nav className="z-50 bg-gradient-to-b from-black to-dark-background flex w-full items-center justify-between h-16 px-5 lg:px-12 sticky top-0 mb-28">
+    <nav className="z-50 bg-gradient-to-b from-black to-dark-background flex w-full items-center justify-between h-16 px-2 md:px-5 lg:px-12 sticky top-0 mb-28">
       {/* left nav */}
-      <div className="flex w-full items-center h-20">
+      <div className="flex items-center h-20">
         {/* logo */}
         <Link href="/" passHref>
           <a
@@ -55,7 +55,7 @@ const Navbar = () => {
         <SearchBar />
 
         {/* notifications icon */}
-        <button type="button" className="p-2 ml-3">
+        <button type="button" className="hidden md:block p-2 md:ml-2">
           <IoMdNotifications
             className="h-5 w-5 md:h-6 md:w-6 text-white"
             aria-hidden="true"
@@ -63,8 +63,8 @@ const Navbar = () => {
         </button>
 
         {/* profile */}
-        <div className="flex items-center ml-3">
-          <button className="text-gray-700 h-5 md:h-8 relative font-semibold py-2 px-4 inline-flex items-center">
+        <div className="flex items-center ml-1 md:ml-2">
+          <button className=" text-gray-700 h-5 md:h-8 relative font-semibold md:py-2 px-4 inline-flex items-center">
             <Image
               src="/assets/profile.svg"
               alt="profile photo"
@@ -75,7 +75,7 @@ const Navbar = () => {
           </button>
 
           <RiArrowDownSFill
-            className="h-5 w-5 text-white ml-1"
+            className="hidden md:block h-5 w-5 text-white md:ml-1"
             aria-hidden="true"
           />
         </div>
