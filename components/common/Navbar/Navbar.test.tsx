@@ -9,8 +9,6 @@ import * as stories from './Navbar.stories';
 
 const { Basic } = composeStories(stories);
 
-const useRouter = jest.spyOn(require('next/router'), 'useRouter');
-
 describe('Navbar', () => {
   let component: ReturnType<typeof render>;
 
@@ -23,10 +21,6 @@ describe('Navbar', () => {
   });
 
   it('should render basic navbar', () => {
-    const router = { push: jest.fn() };
-
-    useRouter.mockReturnValue(router);
-
     const navbar = component.container.getElementsByTagName('nav');
 
     expect(navbar).toBeTruthy();
