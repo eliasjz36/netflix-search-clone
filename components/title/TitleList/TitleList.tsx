@@ -14,7 +14,7 @@ import TitleCard from '../TitleCard';
 
 const TitleList = () => {
   const [titles, setTitles] = useState<Title[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const router = useRouter();
   const search = router.query.q;
