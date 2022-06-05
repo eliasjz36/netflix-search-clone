@@ -10,7 +10,9 @@ const SearchBar = () => {
   const { pathname } = router;
 
   useEffect(() => {
-    router.push({ pathname, query: { q: search } });
+    if (search) {
+      router.push({ pathname, query: { q: search } });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 

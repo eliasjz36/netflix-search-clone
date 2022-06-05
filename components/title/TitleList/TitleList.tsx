@@ -30,6 +30,8 @@ const TitleList = () => {
         setTitles(titles);
       } catch (error) {
         setIsError(true);
+
+        console.error((error as Error).message);
       }
 
       setIsLoading(false);
@@ -45,12 +47,13 @@ const TitleList = () => {
       </Alert>
     );
   }
+  console.log(titles);
 
   return (
     <div>
       {isLoading ? (
         <Loader color="red" />
-      ) : !titles ? (
+      ) : titles.length === 0 ? (
         <div data-testid="search-not-found" className="flex justify-center">
           <div className="text-left text-sm">
             <p>Your search for {`"${search}"`} did not have any matches.</p>

@@ -10,7 +10,10 @@ const client = axios.create({
 const getTitles = (expression: string): Promise<Title[]> =>
   client
     .get(`/Search/${apiKey}/${expression}`)
-    .then((response) => response.data.results);
+    .then((response) => response.data.results)
+    .catch((error) => {
+      throw new Error(error);
+    });
 
 const requests = {
   getTitles,
