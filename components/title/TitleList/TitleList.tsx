@@ -1,57 +1,22 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-
 import Alert from '@ui/Alert';
 import Loader from '@ui/Loader';
 
-import requests from '@services/titles';
-
-import { Title } from '@interfaces/title.interface';
+import useTitleData from '@hooks/useTitleData';
 
 import { Severity } from '@enums/alert.enum';
 
 import TitleCard from '../TitleCard';
 
 const TitleList = () => {
-  const [titles, setTitles] = useState<Title[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const router = useRouter();
-  const search = router.query.q;
-
-  useEffect(() => {
-    const fetchTitles = async () => {
-      setIsError(false);
-      setIsLoading(true);
-
-      try {
-        const titles = await requests.getTitles((search as string) || 'a');
-
-        setTitles(titles);
-      } catch (error) {
-        setIsError(true);
-
-        console.error((error as Error).message);
-      }
-
-      setIsLoading(false);
-    };
-
-    fetchTitles();
-  }, [search]);
-
-  if (isError) {
-    return (
-      <Alert data-testid="search-error" type={Severity.ERROR}>
-        Something went wrong, please try again
-      </Alert>
-    );
-  }
-  console.log(titles);
+  const { titles, isLoading, isError, search } = useTitleData();
 
   return (
-    <div>
-      {isLoading ? (
+    <>
+      {isError ? (
+        <Alert data-testid="search-error" type={Severity.ERROR}>
+          Something went wrong, please try again
+        </Alert>
+      ) : isLoading ? (
         <Loader color="red" />
       ) : titles.length === 0 ? (
         <div data-testid="search-not-found" className="flex justify-center">
@@ -78,7 +43,7 @@ const TitleList = () => {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

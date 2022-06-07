@@ -8,12 +8,11 @@ const client = axios.create({
 });
 
 const getTitles = (expression: string): Promise<Title[]> =>
-  client
-    .get(`/Search/${apiKey}/${expression}`)
-    .then((response) => response.data.results)
-    .catch((error) => {
-      throw new Error(error);
-    });
+  client.get(`/Search/${apiKey}/${expression}`).then((response) => {
+    if (response.data.errorMessage) throw new Error(response.data.errorMessage);
+
+    return response.data.results;
+  });
 
 const requests = {
   getTitles,
