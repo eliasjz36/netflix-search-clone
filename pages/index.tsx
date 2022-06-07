@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 
 import TitleList from '@title/TitleList';
 
@@ -13,3 +13,10 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+// keep the query params in the url
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};

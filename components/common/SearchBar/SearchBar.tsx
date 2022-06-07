@@ -1,18 +1,21 @@
 import { useRouter } from 'next/router';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { FaSearch } from 'react-icons/fa';
 import { RiCloseFill } from 'react-icons/ri';
 
 const SearchBar = () => {
-  const [search, setSearch] = useState('');
   const router = useRouter();
-  const { pathname } = router;
+  const { pathname, query } = router;
+  const [search, setSearch] = useState<string>((query.q as string) || '');
+  const inputElement = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    if (search) {
-      router.push({ pathname, query: { q: search } });
-    }
+    // focus the input element when the page loads
+    if (inputElement.current) inputElement.current.focus();
+
+    // change query when search value changes
+    router.push({ pathname, query: { q: search } });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
@@ -33,6 +36,7 @@ const SearchBar = () => {
 
       {/* search input */}
       <input
+        ref={inputElement}
         data-testid="search-input"
         type="text"
         name="search"

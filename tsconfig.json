@@ -28,6 +28,12 @@
     },
     "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["next-env.d.ts", "components/**/*.ts", "components/**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "pages/**/*.ts",
+    "pages/**/*.tsx"
+  ],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
