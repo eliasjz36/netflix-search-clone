@@ -48,9 +48,14 @@ An application for searching movies and series that allows for a dynamic search 
 
 ### Built With
 
-- [Next.js](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Next.js](https://nextjs.org/)
+- [Storybook](https://storybook.js.org/)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Cypress](https://www.cypress.io/)
+- [Docker](https://www.docker.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -97,11 +102,19 @@ To test the application locally with jest and react testing library, run the fol
 npm run test
 ```
 
-To run e2e tests with cypress, run the following command:
+To run e2e tests with cypress follow the instructions below:
 
-```sh
-npm run cypress
-```
+1. Enter your **IMDB API KEY** in a `cypress.env.json`
+
+   ```js
+   api_key = 'ENTER YOUR API KEY HERE';
+   ```
+
+2. Run the following command:
+
+   ```sh
+   npm run cypress
+   ```
 
 ### Storybook
 
