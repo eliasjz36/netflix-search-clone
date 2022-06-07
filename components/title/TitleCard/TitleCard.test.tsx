@@ -12,9 +12,9 @@ describe('TitleCard', () => {
     component.getByText('Basic Title Card');
     component.getByText('Basic title card description');
 
-    expect(component.container.getElementsByTagName('img')[0]).toHaveAttribute(
+    expect(component.container.getElementsByTagName('img')[1]).toHaveAttribute(
       'alt',
-      `image from the title ${Basic.args?.title?.title}`,
+      `image of the title ${Basic.args?.title?.title}`,
     );
   });
 });

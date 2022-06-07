@@ -17,6 +17,6 @@ body {
 }
 
 .titleCard:hover .face2 {
-  transform: translateY(20px) scale(1.2);
+  transform: translateY(30px) scale(1.2);
   z-index: 30;
 }
